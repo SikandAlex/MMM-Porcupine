@@ -32,9 +32,12 @@ Module.register("MMM-Snowboy", {
 
   notificationReceived: function(notification, payload, sender) {
     switch (notification) {
+      case "ASSISTANT_READY":
+      case "A2D_AMK2_READY":
       case "SNOWBOY_START":
         this.sendSocketNotification('START')
         break
+      case "A2D_AMK2_BUSY":
       case "SNOWBOY_STOP":
         this.sendSocketNotification('STOP')
         break
@@ -43,9 +46,6 @@ Module.register("MMM-Snowboy", {
 
   socketNotificationReceived: function(notification, payload) {
     switch (notification) {
-      case "INITIALIZED":
-        this.sendSocketNotification('RESUME')
-        break
       case "DETECTED":
         this.sendNotification(this.config.onDetected.notification, this.config.onDetected.parameters)
         break

@@ -14,7 +14,7 @@ You can easely create your own hotword with Snowboy. See respective Snowboy's li
 
 
 ## Installation and updates
-To install MagicMirror/MMM-Snowboy module, you can use automatic scripts. 
+To install and update MagicMirror/MMM-Snowboy module, you can use automatic scripts. 
 
 ### Automatic installation
 For automatic installation run the following code:
@@ -63,7 +63,7 @@ defaults: {
 ```
 ### Options
 
-`debug` - 
+`debug` - turn on/off debug mode.
 
 `AudioGain` - set the gain of mic. Usually you don't need to set or adjust this value.
 

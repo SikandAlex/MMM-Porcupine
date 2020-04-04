@@ -5,7 +5,6 @@
 </p>
 
 MMM-Snowboy is a customizable hotword detection module for your MagicMirror to activate your [MagicMirror](https://github.com/MichMich/MagicMirror)/[MMM-AssistantMk2](https://github.com/eouia/MMM-AssistantMk2) module by any hotword like "Smart mirror" or "Jarvis".
-You can easely create your own hotword with Snowboy. See respective Snowboy's library manuals.
 
 
 ## Requirements:

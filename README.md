@@ -4,14 +4,13 @@
 	<a href="http://choosealicense.com/licenses/mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
 </p>
 
-MMM-Snowboy is a customizable hotword detection module for your MagicMirror to wake up your MagicMirror by any hotword like "Smart mirror" or "Jarvis".
-It is preconfigured "from the box" for using with [MagicMirror](https://github.com/MichMich/MagicMirror)/[MMM-AssistantMk2](https://github.com/eouia/MMM-AssistantMk2) module.
+MMM-Snowboy is a customizable hotword detection module for your MagicMirror to activate up your [MagicMirror](https://github.com/MichMich/MagicMirror)/[MMM-AssistantMk2](https://github.com/eouia/MMM-AssistantMk2) module by any hotword like "Smart mirror" or "Jarvis".
 You can easely create your own hotword with Snowboy. See respective Snowboy's library manuals.
 
 
 ## Requirements:
-1. [MagicMirror, min version 2.11.0](https://github.com/MichMich/MagicMirror) 
-2. [MMM-AssistantMk2, min version 3.1.1-0](https://github.com/eouia/MMM-AssistantMk2)
+1. [MagicMirror, ^2.11.0](https://github.com/MichMich/MagicMirror) 
+2. [MMM-AssistantMk2, ^3.1.1-0](https://github.com/eouia/MMM-AssistantMk2)
 
 
 ## Installation and updates

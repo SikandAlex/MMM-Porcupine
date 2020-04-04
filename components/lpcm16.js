@@ -29,11 +29,9 @@ class LPCM16 {
     this.streamOut = streamOut
     this.afterCallback = afterCallback
     this.cp = null
-    this.terminated = false
   }
 
   start () {
-    this.terminated = false
     var options = this.options
     // Capture audio stream
     var cmd, cmdArgs, cmdOptions
@@ -109,16 +107,15 @@ class LPCM16 {
     this.cp.stderr.on('data', (data) => {
       var dataToString = data.toString()
       if (dataToString.search("WARN" > -1)) {
-        log("WARN: " + data.toString())
-        return
+        return console.log("[SNOWBOY:REC] WARN: " + data.toString())
       } else {
         this.stream.destroy()
         return this.afterCallback(data.toString())
       }
     })
-    this.cp.on("exit", (c,s)=>{
+    this.cp.on("exit", (code,signal)=>{
       this.stream.destroy()
-      this.afterCallback()
+      this.afterCallback(null, code)
     })
 
     this.stream = this.cp.stdout
@@ -135,8 +132,6 @@ class LPCM16 {
      log('Stop listening')
     })
 
-
-
     this.stream.pipe(this.streamOut)
   }
 
@@ -149,7 +144,6 @@ class LPCM16 {
     this.cp.kill("SIGTERM") // Exit the spawned process, exit gracefully
     this.options = null
     this.streamOut = null
-    this.terminated = true
   }
 }
 

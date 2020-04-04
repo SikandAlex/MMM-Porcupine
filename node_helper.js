@@ -19,7 +19,7 @@ var log = function() {
 
 module.exports = NodeHelper.create({
   start: function () {
-    console.log("[SNOWBOY] Loading...")
+    console.log("[SNOWBOY] Starting...")
     this.snowboyDict = {
       "smart_mirror": {
         hotwords: "smart_mirror",
@@ -122,10 +122,10 @@ module.exports = NodeHelper.create({
       }
     }
 
-    if (this.model.length == 0) return console.log("[SNOWBOY][ERROR] No model to load")
+    if (this.model.length == 0) return console.log("[A2D:SNOWBOY][ERROR] model not found:", this.config.Model)
     this.model.forEach((model)=>{
-      model.file = path.resolve(modelPath, model.file)
-      this.models.add(model)
+      this.model[0].file = path.resolve(modelPath, this.config.Model + ".umdl")
+      this.models.add(this.model[0])
     })
     log("Initialized...")
   },
@@ -140,8 +140,7 @@ module.exports = NodeHelper.create({
 
     this.detector
       .on("error", (err)=>{
-        console.log("[SNOWBOY] Detector Error", err)
-        this.stopListening()
+        this.error(err)
         return
       })
       .on("hotword", (index, hotword, buffer)=>{
@@ -157,7 +156,7 @@ module.exports = NodeHelper.create({
     if (this.mic) return
     this.running = true
     var Options = Object.assign({}, this.defaultOption, this.config.micConfig)
-    this.mic = new Recorder(Options, this.detector, (err)=>{this.error(err)})
+    this.mic = new Recorder(Options, this.detector, (err,code)=>{this.error(err,code)})
     this.mic.start()
   },
 
@@ -172,11 +171,17 @@ module.exports = NodeHelper.create({
     this.mic = null
   },
 
-  error: function(err) {
-	if (err) {
+  error: function(err, code) {
+	  if (err) {
      console.log("[SNOWBOY][ERROR] " + err)
      this.stopListening()
+     log("Retry restarting...")
+     setTimeout(() => { this.activate() },1000)
      return
+    }
+    if (code == "1") {
+      this.stopListening()
+      setTimeout(() => { this.activate() },1000)
     }
   }
 })

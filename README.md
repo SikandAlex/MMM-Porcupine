@@ -10,7 +10,7 @@ You can easely create your own hotword with Snowboy. See respective Snowboy's li
 
 ## Requirements:
 1. [MagicMirror, ^2.11.0](https://github.com/MichMich/MagicMirror) 
-2. [MMM-AssistantMk2, ^3.1.1-0](https://github.com/eouia/MMM-AssistantMk2)
+2. [MMM-AssistantMk2, ^3.2.0](https://github.com/eouia/MMM-AssistantMk2)
 
 
 ## Installation and updates

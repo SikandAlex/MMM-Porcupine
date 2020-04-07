@@ -4,12 +4,12 @@
 	<a href="http://choosealicense.com/licenses/mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
 </p>
 
-MMM-Snowboy is a customizable hotword detection module for your MagicMirror to activate your [MagicMirror](https://github.com/MichMich/MagicMirror)/[MMM-AssistantMk2](https://github.com/eouia/MMM-AssistantMk2) module by any hotword like "Smart mirror" or "Jarvis" (standard hotwords from Snowboys database.
+MMM-Snowboy is a customizable hotword detection module for your MagicMirror to activate your [MagicMirror](https://github.com/MichMich/MagicMirror)/[MMM-AssistantMk2](https://github.com/bugsounet/MMM-AssistantMk2) module by any hotword like "Smart mirror" or "Jarvis" (standard hotwords from Snowboys database)
 
 
 ## Requirements:
 1. [MagicMirror, ^2.11.0](https://github.com/MichMich/MagicMirror) 
-2. [MMM-AssistantMk2, ^3.2.0](https://github.com/eouia/MMM-AssistantMk2)
+2. [MMM-AssistantMk2, ^3.2.0](https://github.com/bugsounet/MMM-AssistantMk2)
 
 
 ## Installation and updates
@@ -22,33 +22,41 @@ For automatic installation run the following code:
 cd ~/MagicMirror/modules/
 git clone https://github.com/bugsounet/MMM-Snowboy.git
 cd ~/MagicMirror/modules/MMM-Snowboy
-./install
+npm install
 ```
 
 ### Automatic update
 If you have installed module already, run the following code to update your install:
 ```sh
 cd ~/MagicMirror/modules/MMM-Snowboy
-./install
+npm run update
 ```
-
-
 ## Configuration
-### config.js
-
-
+### Minimal configuration
+```js
+{
+  module: 'MMM-Snowboy',
+  config: {
+    Frontend: false,
+    Model: "smart_mirror"
+  }
+},
 ```
+### Personalized configuration
+this is the default configuration defined if you don't define any value
 
-defaults: {
+```js
+{
+  module: 'MMM-Snowboy',
+  config: {
     debug: false,
     AudioGain: 2.0,
-    Frontend: false,
+    Frontend: true,
     Model: "jarvis",
     Sensitivity: null,
-    // When you use only`snowboy` and smart_mirror, false is better. But with other models, true is better.
     micConfig: {
-      recordProgram: "arecord",
-      device: null
+      recorder: "arecord",
+      device: "plughw:1"
     },
     onDetected: {
       notification: "ASSISTANT_ACTIVATE",
@@ -58,7 +66,8 @@ defaults: {
         chime: true
        }
     }
-  },
+  }
+},
 ```
 ### Options
 
@@ -66,20 +75,21 @@ defaults: {
 
 `AudioGain` - set the gain of mic. Usually you don't need to set or adjust this value.
 
-`Frontend` -  set pre-processing of hotword detection. When you are using .pmdl, set this to false. For .umdl, When you use only snowboy and smart_mirror, false is better. But with other models, true is better to recognize..
+`Frontend` -  set pre-processing of hotword detection. When you use only snowboy and smart_mirror, false is better. But with other models, true is better to recognize.
 
 `Model` - set the name of your detector. Available: "smart_mirror", "jarvis", "computer", "snowboy", "subex", "neo_ya", "hey_extreme", "view_glass"
 
-`Sensitivity` - set sensitivity of detection for this hotword. Try various values to find a right one for your environment. When you use only`snowboy` and smart_mirror, false is better. But with other models, true is better.
+`Sensitivity` -  Override default sensitivity value for applied model defined in `Model`. Value could be within a range from `0.0` to `1.0`. Default sensitivity values for preconfigured models are: smart_mirror `0.5`, jarvis `0.7`, computer `0.6`, snowboy `0.5`, subex `0.6`, neo_ya `0.7`, hey_extreme `0.6` and view_glass `0.7`. `null` will set default sensitivity.
 
-`recordProgram` - standard program used by the module. `arecord` is preinstalled in Raspbian Buster.
+`recorder` - standard program used by the module. `arecord` is preinstalled in Raspbian Buster.
+
+`device` - recording device (microphone) name of your environment. (e.g. "plughw:1") Find proper device name by yourself. (arecord -l will be help on Raspberry Pi)
 
 `notification` - notification name to emit when the hotword is detected. Preconfigured for AMk2 activation.
 
-`type` - 
-
-`profile` - 
-
-`chime` - 
+`parameters` - payload to send with your notification. Preconfigured for AMk2 activation.
 
 
+ ### Notes:
+  * this module don't need position, because it don't use any visual
+  * With npm install, you can generate a proper micConfig {} configuration.

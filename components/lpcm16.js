@@ -13,7 +13,7 @@ class LPCM16 {
   constructor (options, streamOut, afterCallback) {
     this.cp = null
     var defaults = {
-      recordProgram: 'arecord',
+      recorder: 'arecord',
       sampleRate: 16000,
       channels: 1,
       compress: false,
@@ -35,7 +35,7 @@ class LPCM16 {
     var options = this.options
     // Capture audio stream
     var cmd, cmdArgs, cmdOptions
-    switch (options.recordProgram) {
+    switch (options.recorder) {
       // On some Windows machines, sox is installed using the "sox" binary
       // instead of "rec"
       case 'sox':
@@ -56,7 +56,7 @@ class LPCM16 {
         break
       case 'rec':
       default:
-        cmd = options.recordProgram
+        cmd = options.recorder
         cmdArgs = [
           '-q',                     // show no progress
           '-r', options.sampleRate, // sample rate
@@ -123,7 +123,7 @@ class LPCM16 {
       'Start listening',
       options.channels,
       'channels, use',
-      options.recordProgram,
+      options.recorder,
       'with sample rate',
       options.sampleRate,
     )

@@ -12,8 +12,8 @@ Module.register("MMM-Snowboy", {
     Sensitivity: null,
     // When you use only`snowboy` and `smart_mirror`, `false` is better. But with other models, `true` is better.
     micConfig: {
-      recordProgram: "arecord",
-      device: null
+      recorder: "arecord",
+      device: "plughw:1"
     },
     onDetected: {
       notification: "ASSISTANT_ACTIVATE",

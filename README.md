@@ -87,7 +87,7 @@ Default sensitivity values for preconfigured models are: smart_mirror `0.5`, jar
 
 `null` will set default sensitivity.
 
-- `recordProgram` - record program, `rec`, `arecord`, `sox`, `parec` is available.
+- `recorder` - record program, `rec`, `arecord`, `sox`, `parec` is available.
 
  On RaspberryPi or some linux machines, `arecord` is better.
  

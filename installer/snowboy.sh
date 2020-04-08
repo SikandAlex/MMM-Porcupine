@@ -8,10 +8,9 @@
 
 Hotword_CloneSB() {
   cd ..
-  Installer_info "Cloning Snowboy from Github..."
-  git clone https://github.com/Kitt-AI/snowboy.git
+  Installer_info "Cloning Snowboy@bugsounet from Github..."
+  git clone https://github.com/bugsounet/snowboy.git
   cd snowboy
-  rm -rf .git
   Installer_info "Copying Snowboy models..."
   cp -r resources/models ..
   echo

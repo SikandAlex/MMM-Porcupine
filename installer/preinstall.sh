@@ -22,7 +22,7 @@ Installer_dir="$(Installer_get_current_dir)"
 cd "$Installer_dir"
 
 source utils.sh
-source hotword.sh
+source snowboy.sh
 
 # del last log
 rm installer.log 2>/dev/null

@@ -31,6 +31,15 @@ If you have installed module already, run the following code to update your inst
 cd ~/MagicMirror/modules/MMM-Snowboy
 npm run update
 ```
+
+### Full Snowboy rebuild
+  * If you have some trouble with new a version of MagicMirror<br>
+  * If you want install lasted version of `snowboy` library
+```sh
+cd ~/MagicMirror/modules/MMM-Snowboy
+npm run rebuild
+```
+
 ## Configuration
 ### Minimal configuration
 ```js

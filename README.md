@@ -34,7 +34,7 @@ npm run update
 
 ### Full Snowboy rebuild
   * If you have some trouble with new a version of MagicMirror<br>
-  * If you want install lasted version of `snowboy` library
+  * If you want install lasted version of `snowboy@bugsounet` library
 ```sh
 cd ~/MagicMirror/modules/MMM-Snowboy
 npm run rebuild

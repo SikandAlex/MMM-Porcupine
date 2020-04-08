@@ -80,30 +80,41 @@ this is the default configuration defined if you don't define any value
 - `Model` - set the name of your detector. Available: "smart_mirror", "jarvis", "computer", "snowboy", "subex", "neo_ya", "hey_extreme", "view_glass"
 
 - `Sensitivity` - Override default sensitivity value for applied model defined in `Model`. 
+    * Value could be within a range from `0.0` to `1.0`.
+    * Default sensitivity values for preconfigured models are:
+      * smart_mirror: `0.5`
+      * jarvis: `0.7`
+      * computer: `0.6`
+      * snowboy: `0.5`
+      * subex: `0.6`
+      * neo_ya: `0.7`
+      * hey_extreme: `0.6`
+      * view_glass: `0.7`
+      * alexa: `0.6`
 
-Value could be within a range from `0.0` to `1.0`.
-
-Default sensitivity values for preconfigured models are: smart_mirror `0.5`, jarvis `0.7`, computer `0.6`, snowboy `0.5`, subex `0.6`, neo_ya `0.7`, hey_extreme `0.6` and view_glass `0.7`.
-
-`null` will set default sensitivity.
+    * `null` will set default sensitivity.
 
 - `recorder` - record program, `rec`, `arecord`, `sox`, `parec` is available.
-
- On RaspberryPi or some linux machines, `arecord` is better.
- 
- On OSX, `rec` is better.
- 
- If you prefer to use `pulse audio`, `parec` would be available also.
+    * On RaspberryPi or some linux machines, `arecord` is better.
+    * On OSX, `rec` is better.
+    * If you prefer to use `pulse audio`, `parec` would be available also.
 
 - `device` - recording device (microphone) name of your environment. (e.g. "plughw:1")
+    * Find proper device name by yourself. (arecord -l will be help on Raspberry Pi)
 
-Find proper device name by yourself. (arecord -l will be help on Raspberry Pi)
+- `notification` - notification name to emit when the hotword is detected. [Preconfigured for AMk2 activation.]
 
-- `notification` - notification name to emit when the hotword is detected. Preconfigured for AMk2 activation.
+- `parameters` - payload to send with your notification. [Preconfigured for AMk2 activation].
 
-- `parameters` - payload to send with your notification. Preconfigured for AMk2 activation.
-
-
- ### Notes:
+ ### Notification received
+ MMM-Snowboy can receive notification for start or stop listening
+  * `SNOWBOY_START`: Start listening your prefered hotkey
+  * `SNOWBOY_STOP`: Stop Litening
+  
+ ### Notes
   * this module don't need position, because it don't use any visual
   * With npm install, you can generate a proper micConfig {} configuration.
+  
+ ### Snowboy
+ This module use my personal [snowboy@bugsounet](https://github.com/bugsounet/snowboy) library build for node<br>
+ Original [snowboy@kitt-AI](https://github.com/Kitt-AI/snowboy) source will be unmaintened soon

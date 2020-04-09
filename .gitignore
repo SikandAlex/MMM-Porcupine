@@ -1,0 +1,5 @@
+/models
+/node_modules
+/snowboy
+/installer/installer.log
+/package-lock.json

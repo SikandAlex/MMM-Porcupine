@@ -1,0 +1,29 @@
+{
+  "name": "MMM-Snowboy",
+  "version": "1.0.0",
+  "description": "Simple Snowboy detector for MMM-AssistantMk2",
+  "main": "MMM-Snowboy.js",
+  "scripts": {
+    "preinstall": "installer/preinstall.sh",
+    "postinstall": "installer/postinstall.sh",
+    "update": "installer/update.sh",
+    "rebuild": "installer/rebuild.sh"
+  },
+  "keywords": [
+    "magic mirror",
+    "module",
+    "hotword",
+    "snowboy",
+    "smart mirror",
+    "voice",
+    "jarvis"
+  ],
+  "author": "bugsounet",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bugsounet/MMM-Snowboy/issues"
+  },
+  "dependencies": {
+    "electron-rebuild": "^1.8.8"
+  }
+}

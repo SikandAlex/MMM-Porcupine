@@ -1,6 +1,6 @@
 {
   "name": "MMM-Snowboy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Simple Snowboy detector for MMM-AssistantMk2",
   "main": "MMM-Snowboy.js",
   "scripts": {
@@ -20,10 +20,11 @@
   ],
   "author": "bugsounet",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bugsounet/MMM-Snowboy"
+  },
   "bugs": {
     "url": "https://github.com/bugsounet/MMM-Snowboy/issues"
-  },
-  "dependencies": {
-    "electron-rebuild": "^1.8.8"
   }
 }

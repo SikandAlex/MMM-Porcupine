@@ -6,8 +6,9 @@
 # v1.0.0
 #--------------
 
-Hotword_CloneSB() {
+Snowboy_CloneSB() {
   cd ..
+  rm -rf snowboy
   Installer_info "Cloning Snowboy@bugsounet from Github..."
   git clone https://github.com/bugsounet/snowboy.git
   cd snowboy
@@ -16,26 +17,13 @@ Hotword_CloneSB() {
   echo
 }
 
-Hotword_InstSB() {
-  Installer_info "Installing nan / node-pre-gyp dependencies..."
-  npm install -y nan node-pre-gyp 2>/dev/null
-  echo
-  Installer_info "Configure node-pre-gyp module..."
-  ./node_modules/node-pre-gyp/bin/node-pre-gyp clean configure build 2>/dev/null
+Snowboy_InstSB() {
   echo
   Installer_info "Installing Snowboy..."
   npm install -y 2>/dev/null
 }
 
-Hotword_Electron() {
-  Installer_info "Installing electron-rebuild..."
-  npm install -y electron-rebuild
-  Installer_info "Execute electron-rebuild..."
-  ./node_modules/.bin/electron-rebuild || exit 1
-  echo
-}
-
-Hotword_CheckSB() {
+Snowboy_CheckSB() {
   Hotword_err="0"
   Hotword_chk_index="$(ls ~/MagicMirror/modules/MMM-Snowboy/snowboy/lib/node/index.js | grep index)"
   Hotword_chk_node="$(ls ~/MagicMirror/modules/MMM-Snowboy/snowboy/lib/node/binding/Release | grep node)"

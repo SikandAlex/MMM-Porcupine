@@ -125,5 +125,5 @@ this is the default configuration defined if you don't define any value
   * With npm install, you can generate a proper micConfig {} configuration.
   
  ### Snowboy
- This module use my personal [snowboy@bugsounet](https://github.com/bugsounet/snowboy) library build for node<br>
+ This module use my personal [snowboy@bugsounet](https://github.com/bugsounet/snowboy) library build for node and will be maintened<br>
  Original [snowboy@kitt-AI](https://github.com/Kitt-AI/snowboy) source will be unmaintened soon

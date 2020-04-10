@@ -60,7 +60,12 @@ module.exports = NodeHelper.create({
         hotwords: "view_glass",
         file: "view_glass.umdl",
         sensitivity: "0.7"
-      }
+      },
+      "alexa": {
+        hotwords: "alexa",
+        file: "alexa.umdl",
+        sensitivity: "0.6"
+      },
     }
     this.config = {}
     this.model = []

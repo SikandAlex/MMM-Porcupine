@@ -69,19 +69,11 @@ Installer_success "All Dependencies needed are installed !"
 # install snowboy
 echo
 Installer_info "Snowboy"
-Hotword_CloneSB
-Hotword_InstSB
-
-echo
-# all is ok than electron-rebuild
-Installer_info "Electron Rebuild"
-Installer_yesno "Do you want to execute electron rebuild" && (
-  Hotword_Electron
-  Installer_success "Electron Rebuild Complete!"
-)
+Snowboy_CloneSB
+Snowboy_InstSB
 
 echo
 #check installation
-Hotword_CheckSB
+Snowboy_CheckSB
 
 echo

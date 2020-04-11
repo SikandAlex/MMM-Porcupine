@@ -4,16 +4,12 @@
 	<a href="http://choosealicense.com/licenses/mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
 </p>
 
-MMM-Snowboy is a customizable hotword detection module for your MagicMirror to activate your [MagicMirror](https://github.com/MichMich/MagicMirror)/[MMM-AssistantMk2](https://github.com/bugsounet/MMM-AssistantMk2) module by any hotword like "Smart mirror" or "Jarvis" (standard hotwords from Snowboys database)
+MMM-Snowboy is a customizable hotword detection module to activate any assistant of your [MagicMirror](https://github.com/MichMich/MagicMirror)
 
-
-## Requirements:
-1. [MagicMirror, ^2.11.0](https://github.com/MichMich/MagicMirror) 
-2. [MMM-AssistantMk2, ^3.2.0](https://github.com/bugsounet/MMM-AssistantMk2)
-
+This module can listen any hotword like "Smart mirror" or "Jarvis" (standard hotwords from Snowboys database)
 
 ## Installation and updates
-To install and update MagicMirror/MMM-Snowboy module, you can use automatic scripts. 
+To install and update MMM-Snowboy module, you can use automatic scripts. 
 
 ### Automatic installation
 For automatic installation run the following code:
@@ -123,6 +119,10 @@ this is the default configuration defined if you don't define any value
  ### Notes
   * this module don't need position, because it don't use any visual
   * With npm install, you can generate a proper micConfig {} configuration.
+  
+ ### MMM-AssistantMk2 users
+  * MMM-Snowboy is preconfigured for this module
+  * Just turn `useA2D: true` on the MMM-AssistantMk2 config file
   
  ### Snowboy
  This module use my personal [snowboy@bugsounet](https://github.com/bugsounet/snowboy) library build for node and will be maintened<br>

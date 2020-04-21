@@ -39,6 +39,7 @@ npm run rebuild
 **2020/04/21**: v1.1.0
   * ADD: use npm @bugsounet/snowboy library
   * FIX: Code for this new library
+  
 **2020/04/11**: v1.0.1
   * FIX: Installer
   * ADD: Alexa

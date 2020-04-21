@@ -68,12 +68,12 @@ Installer_success "All Dependencies needed are installed !"
 
 # install snowboy
 echo
-Installer_info "Snowboy"
-Snowboy_CloneSB
-Snowboy_InstSB
+#Installer_info "Snowboy"
+#Snowboy_CloneSB
+#Snowboy_InstSB
 
 echo
 #check installation
-Snowboy_CheckSB
+#Snowboy_CheckSB
 
 echo

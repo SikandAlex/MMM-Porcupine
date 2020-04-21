@@ -12,12 +12,13 @@ This module can listen any hotword like "Smart mirror" , "Jarvis" or "Alexa" (st
 To install and update MMM-Snowboy module, you can use automatic scripts. 
 
 ### Automatic installation
-For automatic installation run the following code:
+For automatic installation run this command and execute electron rebuild step:
   
 ```sh
 cd ~/MagicMirror/modules/MMM-Snowboy
 npm install
 ```
+
 ### Manual installation
 MMM-Snowboy need some libraries 
 `libmagic-dev libatlas-base-dev sox libsox-fmt-all build-essential`

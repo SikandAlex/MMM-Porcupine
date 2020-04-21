@@ -31,6 +31,7 @@ Don't execute automatic installation
 
 `Do you want to execute automatic intallation ? [Y/n]`<br>
 `Your choice: N`<br>
+
 Don't execute electron rebuild
 
 `Do you want to execute electron rebuild ? [Y/n]`<br>

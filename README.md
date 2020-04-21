@@ -1,7 +1,7 @@
 # MMM-Snowboy
 
 <p align="right">
-	<a href="http://choosealicense.com/licenses/mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+  <a href="http://choosealicense.com/licenses/mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
 </p>
 
 MMM-Snowboy is a customizable hotword detection module to activate any assistant of your [MagicMirror](https://github.com/MichMich/MagicMirror)
@@ -37,8 +37,8 @@ npm run rebuild
 ```
 ## Update
 **2020/04/21**: v1.1.0
-  * ADD: use npm @bugsounet/snowboy library
-  * FIX: Code for this new library
+  * ADD: use npm [@bugsounet/snowboy](https://github.com/bugsounet/snowboy) library
+  * FIX: new Code for this library
   
 **2020/04/11**: v1.0.1
   * FIX: Installer

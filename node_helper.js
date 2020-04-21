@@ -3,7 +3,7 @@
 
 "use strict"
 const path = require("path")
-const Snowboy = require("@bugsounet/testsb").Snowboy
+const Snowboy = require("@bugsounet/snowboy").Snowboy
 
 var NodeHelper = require("node_helper")
 var _log = function() {

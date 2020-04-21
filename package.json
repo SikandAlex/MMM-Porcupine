@@ -1,7 +1,7 @@
 {
   "name": "MMM-Snowboy",
-  "version": "1.0.1",
-  "description": "Simple Snowboy detector for MMM-AssistantMk2",
+  "version": "1.1.0",
+  "description": "Simple Snowboy detector",
   "main": "MMM-Snowboy.js",
   "scripts": {
     "preinstall": "installer/preinstall.sh",
@@ -26,5 +26,8 @@
   },
   "bugs": {
     "url": "https://github.com/bugsounet/MMM-Snowboy/issues"
+  },
+  "dependencies": {
+    "@bugsounet/snowboy": "^1.4.3"
   }
 }

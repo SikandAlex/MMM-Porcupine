@@ -1,12 +1,12 @@
 # MMM-Snowboy
 
 <p align="right">
-	<a href="http://choosealicense.com/licenses/mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+  <a href="http://choosealicense.com/licenses/mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
 </p>
 
 MMM-Snowboy is a customizable hotword detection module to activate any assistant of your [MagicMirror](https://github.com/MichMich/MagicMirror)
 
-This module can listen any hotword like "Smart mirror" or "Jarvis" (standard hotwords from Snowboys database)
+This module can listen any hotword like "Smart mirror" , "Jarvis" or "Alexa" (standard hotwords from Snowboys database)
 
 ## Installation and updates
 To install and update MMM-Snowboy module, you can use automatic scripts. 
@@ -30,11 +30,22 @@ npm run update
 
 ### Full Snowboy rebuild
   * If you have some trouble with new a version of MagicMirror<br>
-  * If you want install lasted version of `snowboy@bugsounet` library
+  * If you want install lasted version of `@bugsounet/snowboy` library
 ```sh
 cd ~/MagicMirror/modules/MMM-Snowboy
 npm run rebuild
 ```
+## Update
+**2020/04/21**: v1.1.0
+  * ADD: use npm [@bugsounet/snowboy](https://github.com/bugsounet/snowboy) library
+  * FIX: new Code for this library
+  
+**2020/04/11**: v1.0.1
+  * FIX: Installer
+  * ADD: Alexa
+    
+**2020/04/09**: v1.0.0
+  * Initial Release
 
 ## Configuration
 ### Minimal configuration
@@ -125,5 +136,5 @@ this is the default configuration defined if you don't define any value
   * Just turn `useA2D: true` on the MMM-AssistantMk2 config file
   
  ### Snowboy
- This module use my personal [snowboy@bugsounet](https://github.com/bugsounet/snowboy) library build for node and will be maintened<br>
+ This module use my personal [@bugsounet/snowboy](https://github.com/bugsounet/snowboy) library build for node and will be maintened<br>
  Original [snowboy@kitt-AI](https://github.com/Kitt-AI/snowboy) source will be unmaintened soon

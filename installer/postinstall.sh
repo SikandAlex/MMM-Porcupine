@@ -22,13 +22,6 @@ Installer_dir="$(Installer_get_current_dir)"
 cd "$Installer_dir"
 
 source utils.sh
-source snowboy.sh
-
-# del last log
-rm installer.log 2>/dev/null
-
-# logs in installer.log file
-Installer_log
 
 # check version
 Installer_version="$(cat ../package.json | grep version | cut -c15-19 2>/dev/null)"
@@ -40,12 +33,6 @@ echo
 if [ "$EUID" -eq 0 ]; then
   Installer_error "npm install must not be used as root"
   exit 1
-fi
-
-# Check platform compatibility
-Installer_checkOS
-if  [ "$platform" == "osx" ]; then
-  exit 0
 fi
 
 echo

@@ -63,7 +63,9 @@ module.exports = NodeHelper.create({
       this.porcupine.setHotword(hotword)
     }
 
-    this.porcupine.setMicVolume(this.config.micVolume)
+    // DOESN'T WORK (only normal JS version)
+    //this.porcupine.setMicVolume(this.config.micVolume)
+
     this.porcupine.setSensitivity(this.config.sensitivity)
 
     // Listen for hotword detection events

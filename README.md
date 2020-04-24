@@ -44,8 +44,7 @@ npm install
 },
 ```
 
-### Personalized
-this is the default configuration defined if you don't define any value
+### Advanced
 
 ```js
 {

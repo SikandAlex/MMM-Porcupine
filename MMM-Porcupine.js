@@ -5,11 +5,7 @@ Module.register("MMM-Porcupine", {
     debug: false,
     // Default hotword is 'porcupine'
     hotword: "porcupine",
-    sensitivity: 0.5,
-    micConfig: {
-      recorder: "arecord",
-      device: "plughw:1",
-    },
+    sensitivity: 0.7,
     onDetected: {
       notification: "ASSISTANT_ACTIVATE",
       parameters: {

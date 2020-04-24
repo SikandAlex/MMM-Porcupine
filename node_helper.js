@@ -22,7 +22,6 @@ module.exports = NodeHelper.create({
   // Start function
   start: function () {
     console.log("[PORCUPINE] Starting...")
-    //console.log("[SNOWBOY] Starting...")
     this.config = {}
     this.running = false
     this.porcupine = null
@@ -56,8 +55,9 @@ module.exports = NodeHelper.create({
 
     var hotword = this.config.hotword
 
-    // Inform the user of the hotword currently in use
+    // Inform the user of the hotword currently in use + sensitivity
     console.log('USING HOTWORD:', hotword)
+    console.log('SENSITIVITY:', this.config.sensitivity)
 
     // Add the hotword
     const data = require(`./hotwords/${hotword}`);

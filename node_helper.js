@@ -55,7 +55,7 @@ module.exports = NodeHelper.create({
     if (debug == true) log = _log
 
     // Create a new porcupine instance
-    this.porcupine = new Porcupine()
+    this.porcupine = new Porcupine({hotwords: ["bumblebee"]})
 
     // Configure the porcupine instance with config parameters
     console.log('SELECTED HOTWORD:', this.config.hotword)
@@ -69,10 +69,14 @@ module.exports = NodeHelper.create({
     this.porcupine.setSensitivity(this.config.sensitivity)
 
     // Listen for hotword detection events
-    this.porcupine.on('hotword', function (hotword) {
+    this.porcupine.on('hotword', (hotword) => {
         this.sendSocketNotification("DETECTED")
         console.log('DETECTED:', hotword);
     });
+
+    const data = require(`./hotwords/${hotword}`);
+    this.porcupine.addHotword(hotword, data, opts.sensitivity || config.sensitivity);
+
 
     /* DEBUG
     // On receiving data

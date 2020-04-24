@@ -1,13 +1,10 @@
-//
 // Module : MMM-Porcupine
-//
-
 
 Module.register("MMM-Porcupine", {
   defaults: {
     debug: false,
-    micVolume: 1.0,
-    hotwords: ["bumblebee"],
+    // Default hotword is 'bumblebee'
+    hotword: ["bumblebee"],
     sensitivity: 0.5,
     micConfig: {
       recorder: "arecord",
@@ -32,13 +29,11 @@ Module.register("MMM-Porcupine", {
     switch (notification) {
       case "ASSISTANT_READY":
       case "A2D_AMK2_READY":
-      // unused except for manual trigger I think?
       case "PORCUPINE_START":
         this.sendSocketNotification('START')
         break
       case "A2D_AMK2_BUSY":
       case "PORCUPINE_STOP":
-        // unused for manual trigger I think by other modules
         this.sendSocketNotification('STOP')
         break
     }
@@ -51,12 +46,13 @@ Module.register("MMM-Porcupine", {
       case "DETECTED":
         // Send ASSISTANT_ACTIVATE notification to MM Google Assistant MK2
         // find handling code in line 278 of MMM-AssistantMk2.js
+        // https://github.com/bugsounet/MMM-AssistantMk2
         this.sendNotification(this.config.onDetected.notification, this.config.onDetected.parameters)
         break
     }
   },
 
-  // IDK what the fuck this is doing
+  // Assign the configuration
   configAssignment : function (result) {
     var stack = Array.prototype.slice.call(arguments, 1)
     var item

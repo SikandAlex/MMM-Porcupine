@@ -3,19 +3,16 @@
 const path = require("path")
 
 const Porcupine = require('bumblebee-hotword-node');
-
-// Helps to do node tasks easier
-// https://github.com/vkuehn/node-helper
 var NodeHelper = require("node_helper")
 
-// Logging function to log snowboy output, in this case it is binding the
-// output of the current script to the console with the [SNOWBOY] context
+// Logging function to log MMM-Porcupine output, in this case it is binding the
+// output of the current script to the console with the [PORCUPINE] context
 var _log = function() {
     var context = "[PORCUPINE]"
     return Function.prototype.bind.call(console.log, console, context)
 }()
 
-// Don't know what this is for
+// Logging
 var log = function() {
   //do nothing
 }
@@ -39,11 +36,11 @@ module.exports = NodeHelper.create({
         this.initialize()
         break
       case "START":
-        // if we get a START socket notification, tell Snowboy to start listening
+        // if we get a START socket notification, tell Porcupine to start listening
         if (!this.running) this.activate()
         break
       case "STOP":
-        // If we get a STOP socket notification, deactivate Snowboy, stop listening
+        // If we get a STOP socket notification, tell Porcupine to stop listening
         if (this.running) this.deactivate()
         break
     }
@@ -55,46 +52,46 @@ module.exports = NodeHelper.create({
     if (debug == true) log = _log
 
     // Create a new porcupine instance
-    this.porcupine = new Porcupine({hotwords: ["bumblebee"]})
+    this.porcupine = new Porcupine()
 
-    // Configure the porcupine instance with config parameters
-    console.log('SELECTED HOTWORD:', this.config.hotword)
+    var hotword = this.config.hotword
 
-    this.porcupine.setHotword(this.config.hotword)
+    // Inform the user of the hotword currently in use
+    console.log('USING HOTWORD:', hotword)
 
+    // Add the hotword
+    const data = require(`./hotwords/${this.config.hotword}`);
+    this.porcupine.addHotword(this.config.hotword, data, config.sensitivity);
+
+    // Set the sensitivity for the hotword detection
+    this.porcupine.setSensitivity(this.config.sensitivity)
 
     // DOESN'T WORK (only normal JS version)
     //this.porcupine.setMicVolume(this.config.micVolume)
 
-    this.porcupine.setSensitivity(this.config.sensitivity)
-
-    // Listen for hotword detection events
+    // Listen for hotword detection events, when we receive the event:
+    // send a socketNotification
     this.porcupine.on('hotword', (hotword) => {
         this.sendSocketNotification("DETECTED")
         console.log('DETECTED:', hotword);
     });
 
-    const data = require(`./hotwords/${this.config.hotword}`);
-    this.porcupine.addHotword(this.config.hotword, data, config.sensitivity);
+    log("Initialized...")
 
-
-    /* DEBUG
+    /* DEBUG?
     // On receiving data
     porcupine.on('data', function(data) {
         console.log('data', data);
     });
     */
-
-    log("Initialized...")
   },
 
-  // Activate snowboy and start listening
-  activate: function() {
+  // Tell Porcupine to start listening
     this.porcupine.start()
     this.running = true
   },
 
-  // Snowboy stop listening
+  // Tell Porcupine to stop listening
   deactivate: function() {
     this.porcupine.stop()
     this.running = false

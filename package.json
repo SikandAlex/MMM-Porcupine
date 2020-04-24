@@ -3,12 +3,6 @@
   "version": "0.0.1",
   "description": "Picovoice/Porcupine hotword detection for MagicMirror",
   "main": "MMM-Porcupine.js",
-  "scripts": {
-    "preinstall": "installer/preinstall.sh",
-    "postinstall": "installer/postinstall.sh",
-    "update": "installer/update.sh",
-    "rebuild": "installer/rebuild.sh"
-  },
   "keywords": [
     "module",
     "hotword",

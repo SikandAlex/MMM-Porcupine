@@ -58,10 +58,10 @@ module.exports = NodeHelper.create({
     this.porcupine = new Porcupine()
 
     // Configure the porcupine instance with config parameters
-    console.log(this.config.hotword)
-    for (var hotword in this.config.hotword) {
-      this.porcupine.setHotword(hotword)
-    }
+    console.log('SELECTED HOTWORD': this.config.hotword)
+
+    this.porcupine.setHotword(hotword)
+
 
     // DOESN'T WORK (only normal JS version)
     //this.porcupine.setMicVolume(this.config.micVolume)

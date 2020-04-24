@@ -28,7 +28,7 @@ module.exports = NodeHelper.create({
     this.porcupine = null
   },
 
-  socketNotificationReceived: (notification, payload) => {
+  socketNotificationReceived: function(notification, payload) {
     switch(notification) {
       case "INIT":
         // set the internal config to the payload received in socket notification

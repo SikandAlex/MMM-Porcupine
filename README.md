@@ -1,8 +1,17 @@
-# MMM-Porcupine
-
-<p align="right">
-  <a href="http://choosealicense.com/licenses/mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
+<p align="center">
+  <img src="https://lh3.googleusercontent.com/j-ZoFrLkHjVTbRnj0kXW9FRQz8wLA5xf2LJasXL35na2_KaZjyr-HcdDWLhXysFfTYaNWKCCdEiV4He0e-aaFrl-O1rqANNmp-7hyuDl3uKL7zcJZaiIkdTAWcXmg5HwTtNMiOHVGyE=w2400" width="600" />
 </p>
+
+<p align="center">
+  <a href="#">
+    <img src="https://img.shields.io/badge/made%20with-love-E760A4.svg" alt="Made with love">
+  </a>
+  <a href="https://opensource.org/licenses/MIT" target="_blank">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
+  </a>
+</p>
+
+# MMM-Porcupine
 
 MMM-Porcupine is a customizable hotword detection module to activate/notify other [MagicMirror](https://github.com/MichMich/MagicMirror) modules
 
@@ -12,53 +21,12 @@ See [Picovoice Porcupine](https://github.com/Picovoice/porcupine) for info on ho
 
 It would be great to get a model trained by the community on the "smart mirror" hotword 
 
-## Installation and updates
-To install and update MMM-Porcupine module, you can use automatic scripts. 
-
-### Automatic installation
-For automatic installation run this command and execute electron rebuild step:
-  
+## Installation and updates 
 ```sh
-cd ~/MagicMirror/modules/MMM-Porcupine
+cd ~/MagicMirror/modules
+git clone https://github.com/SikandAlex/MMM-Porcupine.git
+cd MMM-Porcupine
 npm install
-```
-
-### Manual installation
-MMM-Porcupine need some libraries 
-`libmagic-dev libatlas-base-dev sox libsox-fmt-all build-essential`
-
-```sh
-sudo apt-get install libmagic-dev libatlas-base-dev sox libsox-fmt-all build-essential
-cd ~/MagicMirror/modules/MMM-Porcupine
-npm install
-```
-Don't execute automatic installation
-
-`Do you want to execute automatic intallation ? [Y/n]`<br>
-`Your choice: N`<br>
-
-Don't execute electron rebuild
-
-`Do you want to execute electron rebuild ? [Y/n]`<br>
-`Your choice: N`<br> 
-
-Now, do electron rebuild step manualy:
-```sh
-./node_modules/.bin/electron-rebuild
-```
-
-### Automatic update
-If you have installed module already, run the following code to update your install:
-```sh
-cd ~/MagicMirror/modules/MMM-Porcupine
-npm run update
-```
-
-### Full Porcupine rebuild
-  * If you have some trouble with new a version of MagicMirror<br>
-```sh
-cd ~/MagicMirror/modules/MMM-Porcupine
-npm run rebuild
 ```
 
 ## Update
@@ -66,17 +34,17 @@ npm run rebuild
   * First release for testing on RPi 4 Raspbian Buster
 
 ## Configuration
-### Minimal configuration
+### Basic
 ```js
 {
   module: 'MMM-Porcupine',
   config: {
-    hotwords: ["porcupine"]
+    hotword: "porcupine"
   }
 },
 ```
 
-### Personalized configuration
+### Personalized
 this is the default configuration defined if you don't define any value
 
 ```js
@@ -84,8 +52,7 @@ this is the default configuration defined if you don't define any value
   module: 'MMM-Porcupine',
   config: {
     debug: false,
-    micVolume: 1,
-    hotwords: ["bumblebee"],
+    hotword: "porcupine",
     sensitivity: 0.5,
     micConfig: {
       recorder: "arecord",
@@ -102,13 +69,12 @@ this is the default configuration defined if you don't define any value
   }
 },
 ```
+
 ### Options
 
 - `debug` - turn on/off debug mode.
 
-- `micVolume` - The volume of the microphone. Usually you don't need to set or adjust this value.
-
-- `hotwords` - Array of hotwords you wish to detect. The available hotwords are "porcupine", "bumblebee", "grasshopper", "terminator, and "hey edison"
+- `hotword` - The hotword you wish to detect. The available hotwords are "porcupine", "bumblebee", "grasshopper", "terminator, and "hey edison"
 
 - `sensitivity` - Override default sensitivity value for applied model defined in `Model`. 
     * Value could be within a range from `0.0` to `1.0`.
@@ -126,14 +92,10 @@ this is the default configuration defined if you don't define any value
 
 - `parameters` - payload to send with your notification. [Preconfigured for AMk2 activation].
 
- ### Notification received
+ ### Notifications
  MMM-Snowboy can receive notification for start or stop listening
   * `PORCUPINE_START`: Start listening for hotwords
   * `PORCUPINE_STOP`: Stop listening for hotwords
-  
- ### Notes
-  * This module does't need any configuration for position because it runs behind-the-scenes
-  * With npm install, you can generate a proper micConfig {} configuration
   
  ### MMM-AssistantMk2 users
   * MMM-Porcupine is preconfigured for this module

@@ -58,7 +58,7 @@ module.exports = NodeHelper.create({
     this.porcupine = new Porcupine()
 
     // Configure the porcupine instance with config parameters
-    for hotword in this.config.hotwords {
+    for (var hotword in this.config.hotwords) {
       this.porcupine.addHotword(hotword)
     }
 

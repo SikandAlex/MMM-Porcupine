@@ -84,7 +84,6 @@ module.exports = NodeHelper.create({
         console.log('data', data);
     });
     */
-  },
 
   // Tell Porcupine to start listening
     this.porcupine.start()

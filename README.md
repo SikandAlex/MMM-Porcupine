@@ -81,7 +81,7 @@ this is the default configuration defined if you don't define any value
 - `parameters` - payload to send with your notification. [Preconfigured for AMk2 activation].
 
  ### Notifications
- MMM-Snowboy can receive notification for start or stop listening
+ MMM-Porcupine can receive notification for start or stop listening
   * `PORCUPINE_START`: Start listening for hotwords
   * `PORCUPINE_STOP`: Stop listening for hotwords
   

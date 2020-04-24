@@ -21,7 +21,7 @@ See [Picovoice Porcupine](https://github.com/Picovoice/porcupine) for info on ho
 
 It would be great to get a model trained by the community on the "smart mirror" hotword 
 
-## Installation and updates 
+## Installation 
 ```sh
 cd ~/MagicMirror/modules
 git clone https://github.com/SikandAlex/MMM-Porcupine.git

@@ -34,17 +34,17 @@ npm install
   * First release for testing on RPi 4 Raspbian Buster
 
 ## Configuration
-### Minimal configuration
+### Basic
 ```js
 {
   module: 'MMM-Porcupine',
   config: {
-    hotwords: ["porcupine"]
+    hotword: "porcupine"
   }
 },
 ```
 
-### Personalized configuration
+### Personalized
 this is the default configuration defined if you don't define any value
 
 ```js
@@ -52,8 +52,7 @@ this is the default configuration defined if you don't define any value
   module: 'MMM-Porcupine',
   config: {
     debug: false,
-    micVolume: 1,
-    hotwords: ["bumblebee"],
+    hotword: "porcupine",
     sensitivity: 0.5,
     micConfig: {
       recorder: "arecord",

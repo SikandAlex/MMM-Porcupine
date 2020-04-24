@@ -28,7 +28,7 @@ module.exports = NodeHelper.create({
     this.porcupine = null
   },
 
-  socketNotificationReceived: function (notification, payload) {
+  socketNotificationReceived: (notification, payload) => {
     switch(notification) {
       case "INIT":
         // set the internal config to the payload received in socket notification
@@ -46,7 +46,7 @@ module.exports = NodeHelper.create({
     }
   },
 
-  initialize: function() {
+  initialize: () => {
     // if config has debug=true then start in debug mode, else dont
     var debug = (this.config.debug) ? this.config.debug : false
     if (debug == true) log = _log
@@ -60,8 +60,8 @@ module.exports = NodeHelper.create({
     console.log('USING HOTWORD:', hotword)
 
     // Add the hotword
-    const data = require(`./hotwords/${this.config.hotword}`);
-    this.porcupine.addHotword(this.config.hotword, data, config.sensitivity);
+    const data = require(`./hotwords/${hotword}`);
+    this.porcupine.addHotword(hotword, data, config.sensitivity);
 
     // Set the sensitivity for the hotword detection
     this.porcupine.setSensitivity(this.config.sensitivity)
@@ -78,20 +78,16 @@ module.exports = NodeHelper.create({
 
     log("Initialized...")
 
-    /* DEBUG?
-    // On receiving data
-    porcupine.on('data', function(data) {
-        console.log('data', data);
-    });
-    */
+  },
 
   // Tell Porcupine to start listening
+  activate: () => {
     this.porcupine.start()
     this.running = true
   },
 
   // Tell Porcupine to stop listening
-  deactivate: function() {
+  deactivate: () => {
     this.porcupine.stop()
     this.running = false
   },

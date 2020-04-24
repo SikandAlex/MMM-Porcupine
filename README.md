@@ -41,7 +41,7 @@ npm install
   config: {
     hotword: "porcupine"
   }
-},
+}
 ```
 
 ### Advanced
@@ -62,7 +62,7 @@ npm install
        }
     }
   }
-},
+}
 ```
 
 ### Options

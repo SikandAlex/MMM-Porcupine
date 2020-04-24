@@ -33,11 +33,11 @@ Module.register("MMM-Porcupine", {
       case "ASSISTANT_READY":
       case "A2D_AMK2_READY":
       // unused except for manual trigger I think?
-      case "SNOWBOY_START":
+      case "PORCUPINE_START":
         this.sendSocketNotification('START')
         break
       case "A2D_AMK2_BUSY":
-      case "SNOWBOY_STOP":
+      case "PORCUPINE_STOP":
         // unused for manual trigger I think by other modules
         this.sendSocketNotification('STOP')
         break

@@ -60,7 +60,7 @@ module.exports = NodeHelper.create({
     // Configure the porcupine instance with config parameters
     console.log('SELECTED HOTWORD:', this.config.hotword)
 
-    this.porcupine.setHotword(hotword)
+    this.porcupine.setHotword(this.config.hotword)
 
 
     // DOESN'T WORK (only normal JS version)

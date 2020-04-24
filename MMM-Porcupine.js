@@ -4,7 +4,7 @@ Module.register("MMM-Porcupine", {
   defaults: {
     debug: false,
     // Default hotword is 'porcupine'
-    hotword: ["bumblebee"],
+    hotword: "porcupine",
     sensitivity: 0.5,
     micConfig: {
       recorder: "arecord",

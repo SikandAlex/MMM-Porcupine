@@ -54,10 +54,6 @@ this is the default configuration defined if you don't define any value
     debug: false,
     hotword: "porcupine",
     sensitivity: 0.7,
-    micConfig: {
-      recorder: "arecord",
-      device: "plughw:1"
-    },
     onDetected: {
       notification: "ASSISTANT_ACTIVATE",
       parameters: {

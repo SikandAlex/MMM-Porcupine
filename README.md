@@ -53,7 +53,7 @@ this is the default configuration defined if you don't define any value
   config: {
     debug: false,
     hotword: "porcupine",
-    sensitivity: 0.5,
+    sensitivity: 0.7,
     micConfig: {
       recorder: "arecord",
       device: "plughw:1"
@@ -79,14 +79,6 @@ this is the default configuration defined if you don't define any value
 - `sensitivity` - Override default sensitivity value for applied model defined in `Model`. 
     * Value could be within a range from `0.0` to `1.0`.
     * Default sensitivity values is 0.5
-
-- `recorder` - record program, `rec`, `arecord`, `sox`, `parec` is available.
-    * On RaspberryPi or some linux machines, `arecord` is better.
-    * On OSX, `rec` is better.
-    * If you prefer to use `pulse audio`, `parec` would be available also.
-
-- `device` - recording device (microphone) name of your environment. (e.g. "plughw:1")
-    * Find proper device name by yourself. (arecord -l will be help on Raspberry Pi)
 
 - `notification` - notification name to emit when the hotword is detected. [Preconfigured for AMk2 activation.]
 

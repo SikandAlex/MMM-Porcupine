@@ -47,7 +47,6 @@ Now, do electron rebuild step manualy:
 ./node_modules/.bin/electron-rebuild
 ```
 
-
 ### Automatic update
 If you have installed module already, run the following code to update your install:
 ```sh
@@ -55,13 +54,13 @@ cd ~/MagicMirror/modules/MMM-Porcupine
 npm run update
 ```
 
-### Full Snowboy rebuild
+### Full Porcupine rebuild
   * If you have some trouble with new a version of MagicMirror<br>
-  * If you want install lasted version of `@bugsounet/snowboy` library
 ```sh
-cd ~/MagicMirror/modules/MMM-Snowboy
+cd ~/MagicMirror/modules/MMM-Porcupine
 npm run rebuild
 ```
+
 ## Update
 **2020/04/23**: v0.0.1
   * First release for testing on RPi 4 Raspbian Buster
@@ -70,10 +69,9 @@ npm run rebuild
 ### Minimal configuration
 ```js
 {
-  module: 'MMM-Snowboy',
+  module: 'MMM-Porcupine',
   config: {
-    Frontend: false,
-    Model: "smart_mirror"
+    hotwords: ["porcupine"]
   }
 },
 ```

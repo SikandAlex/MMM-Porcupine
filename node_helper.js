@@ -46,7 +46,7 @@ module.exports = NodeHelper.create({
     }
   },
 
-  initialize: () => {
+  initialize: function() {
     // if config has debug=true then start in debug mode, else dont
     var debug = (this.config.debug) ? this.config.debug : false
     if (debug == true) log = _log
@@ -81,13 +81,13 @@ module.exports = NodeHelper.create({
   },
 
   // Tell Porcupine to start listening
-  activate: () => {
+  activate: function() {
     this.porcupine.start()
     this.running = true
   },
 
   // Tell Porcupine to stop listening
-  deactivate: () => {
+  deactivate: function() {
     this.porcupine.stop()
     this.running = false
   },

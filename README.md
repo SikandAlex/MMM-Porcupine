@@ -71,9 +71,9 @@ npm install
 
 - `hotword` - The hotword you wish to detect. The available hotwords are "porcupine", "bumblebee", "grasshopper", "terminator, and "hey edison"
 
-- `sensitivity` - Override default sensitivity value for applied model defined in `Model`. 
+- `sensitivity` - Override default sensitivity value 
     * Value could be within a range from `0.0` to `1.0`.
-    * Default sensitivity values is 0.5
+    * Default sensitivity values is 0.7
 
 - `notification` - notification name to emit when the hotword is detected. [Preconfigured for AMk2 activation.]
 

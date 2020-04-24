@@ -1,8 +1,8 @@
 {
-  "name": "MMM-Snowboy",
-  "version": "1.1.0",
-  "description": "Simple Snowboy detector",
-  "main": "MMM-Snowboy.js",
+  "name": "MMM-Porcupine",
+  "version": "0.0.1",
+  "description": "Picovoice/Porcupine hotword detection for MagicMirror",
+  "main": "MMM-Porcupine.js",
   "scripts": {
     "preinstall": "installer/preinstall.sh",
     "postinstall": "installer/postinstall.sh",
@@ -10,24 +10,27 @@
     "rebuild": "installer/rebuild.sh"
   },
   "keywords": [
-    "magic mirror",
     "module",
     "hotword",
-    "snowboy",
+    "hotword detection",
+    "porcupine",
+    "bumblebee",
+    "picovoice",
+    "magic mirror",
     "smart mirror",
     "voice",
     "jarvis"
   ],
-  "author": "bugsounet",
+  "author": "SikandAlex",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bugsounet/MMM-Snowboy"
+    "url": "https://github.com/SikandAlex/MMM-Porcupine"
   },
   "bugs": {
-    "url": "https://github.com/bugsounet/MMM-Snowboy/issues"
+    "url": "https://github.com/SikandAlex/MMM-Porcupine/issues"
   },
   "dependencies": {
-    "@bugsounet/snowboy": "^1.4.3"
+    "bumblebee-hotword-node": "^0.0.5"
   }
 }

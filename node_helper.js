@@ -1,69 +1,95 @@
-/** Snowboy module **/
-
-
+/** Porcupine module **/
 "use strict"
 const path = require("path")
-const Snowboy = require("@bugsounet/snowboy").Snowboy
 
+const Porcupine = require('bumblebee-hotword-node');
+
+// Helps to do node tasks easier
+// https://github.com/vkuehn/node-helper
 var NodeHelper = require("node_helper")
+
+// Logging function to log snowboy output, in this case it is binding the
+// output of the current script to the console with the [SNOWBOY] context
 var _log = function() {
-    var context = "[SNOWBOY]"
+    var context = "[PORCUPINE]"
     return Function.prototype.bind.call(console.log, console, context)
 }()
 
+// Don't know what this is for
 var log = function() {
   //do nothing
 }
 
+// export functions for use elsewhere
 module.exports = NodeHelper.create({
+  // Start function
   start: function () {
-    console.log("[SNOWBOY] Starting...")
+    console.log("[PORCUPINE] Starting...")
+    //console.log("[SNOWBOY] Starting...")
     this.config = {}
     this.running = false
-    this.snowboyConfig = {}
-    this.snowboy = null
+    this.porcupine = null
   },
 
   socketNotificationReceived: function (notification, payload) {
     switch(notification) {
       case "INIT":
+        // set the internal config to the payload received in socket notification
         this.config = payload
         this.initialize()
         break
       case "START":
+        // if we get a START socket notification, tell Snowboy to start listening
         if (!this.running) this.activate()
         break
       case "STOP":
+        // If we get a STOP socket notification, deactivate Snowboy, stop listening
         if (this.running) this.deactivate()
         break
     }
   },
 
   initialize: function() {
+    // if config has debug=true then start in debug mode, else dont
     var debug = (this.config.debug) ? this.config.debug : false
     if (debug == true) log = _log
-    this.snowboyConfig = {
-      AudioGain: this.config.AudioGain,
-      Frontend: this.config.Frontend,
-      Model: this.config.Model,
-      Sensitivity: this.config.Sensitivity
+
+    // Create a new porcupine instance
+    this.porcupine = new Porcupine()
+
+    // Configure the porcupine instance with config parameters
+    for each (hotword in this.config.hotwords) {
+      this.porcupine.addHotword(hotword)
     }
-    this.snowboy = new Snowboy(this.snowboyConfig, this.config.micConfig, (detected) => { this.onDetected(detected) }, this.config.debug )
-    this.snowboy.init()
+
+    this.porcupine.setMicVolume(this.config.micVolume)
+    this.porcupine.setSensitivity(this.config.sensitivity)
+
+    // Listen for hotword detection events
+    this.porcupine.on('hotword', function (hotword) {
+        this.sendSocketNotification("DETECTED")
+        console.log('DETECTED:', hotword);
+    });
+
+    /* DEBUG
+    // On receiving data
+    porcupine.on('data', function(data) {
+        console.log('data', data);
+    });
+    */
+
     log("Initialized...")
   },
 
+  // Activate snowboy and start listening
   activate: function() {
-    this.snowboy.start()
+    this.porcupine.start()
     this.running = true
   },
 
-  onDetected: function (detected) {
-    this.sendSocketNotification("DETECTED")
-  },
-
+  // Snowboy stop listening
   deactivate: function() {
-    this.snowboy.stop()
+    this.porcupine.stop()
     this.running = false
   },
 

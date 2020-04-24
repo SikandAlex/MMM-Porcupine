@@ -2,7 +2,7 @@
 
 var spawn = require('child_process').spawn
 var _log = function() {
-    var context = "[SNOWBOY:REC]"
+    var context = "[PORCUPINE:REC]"
     return Function.prototype.bind.call(console.log, console, context)
 }()
 
@@ -107,7 +107,7 @@ class LPCM16 {
     this.cp.stderr.on('data', (data) => {
       var dataToString = data.toString()
       if (dataToString.search("WARN" > -1)) {
-        return console.log("[SNOWBOY:REC] WARN: " + data.toString())
+        return console.log("[PORCUPINE:REC] WARN: " + data.toString())
       } else {
         this.stream.destroy()
         return this.afterCallback(data.toString())

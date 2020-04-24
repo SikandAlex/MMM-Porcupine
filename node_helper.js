@@ -74,7 +74,7 @@ module.exports = NodeHelper.create({
         console.log('DETECTED:', hotword);
     });
 
-    const data = require(`./hotwords/${hotword}`);
+    const data = require(`./hotwords/${this.config.hotword}`);
     this.porcupine.addHotword(hotword, data, opts.sensitivity || config.sensitivity);
 
 

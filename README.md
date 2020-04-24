@@ -1,31 +1,35 @@
-# MMM-Snowboy
+# MMM-Porcupine
 
 <p align="right">
   <a href="http://choosealicense.com/licenses/mit"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a>
 </p>
 
-MMM-Snowboy is a customizable hotword detection module to activate any assistant of your [MagicMirror](https://github.com/MichMich/MagicMirror)
+MMM-Porcupine is a customizable hotword detection module to activate/notify other [MagicMirror](https://github.com/MichMich/MagicMirror) modules
 
-This module can listen any hotword like "Smart mirror" , "Jarvis" or "Alexa" (standard hotwords from Snowboys database)
+The default hotwords are "porcupine", "bumblebee", "grasshopper", "terminator, and "hey edison"
+
+See [Picovoice Porcupine](https://github.com/Picovoice/porcupine) for info on how to train your own model
+
+It would be great to get a model trained by the community on the "smart mirror" hotword 
 
 ## Installation and updates
-To install and update MMM-Snowboy module, you can use automatic scripts. 
+To install and update MMM-Porcupine module, you can use automatic scripts. 
 
 ### Automatic installation
 For automatic installation run this command and execute electron rebuild step:
   
 ```sh
-cd ~/MagicMirror/modules/MMM-Snowboy
+cd ~/MagicMirror/modules/MMM-Porcupine
 npm install
 ```
 
 ### Manual installation
-MMM-Snowboy need some libraries 
+MMM-Porcupine need some libraries 
 `libmagic-dev libatlas-base-dev sox libsox-fmt-all build-essential`
 
 ```sh
 sudo apt-get install libmagic-dev libatlas-base-dev sox libsox-fmt-all build-essential
-cd ~/MagicMirror/modules/MMM-Snowboy
+cd ~/MagicMirror/modules/MMM-Porcupine
 npm install
 ```
 Don't execute automatic installation
@@ -47,7 +51,7 @@ Now, do electron rebuild step manualy:
 ### Automatic update
 If you have installed module already, run the following code to update your install:
 ```sh
-cd ~/MagicMirror/modules/MMM-Snowboy
+cd ~/MagicMirror/modules/MMM-Porcupine
 npm run update
 ```
 
@@ -59,16 +63,8 @@ cd ~/MagicMirror/modules/MMM-Snowboy
 npm run rebuild
 ```
 ## Update
-**2020/04/21**: v1.1.0
-  * ADD: use npm [@bugsounet/snowboy](https://github.com/bugsounet/snowboy) library
-  * FIX: new Code for this library
-  
-**2020/04/11**: v1.0.1
-  * FIX: Installer
-  * ADD: Alexa
-    
-**2020/04/09**: v1.0.0
-  * Initial Release
+**2020/04/23**: v0.0.1
+  * First release for testing on RPi 4 Raspbian Buster
 
 ## Configuration
 ### Minimal configuration
@@ -81,18 +77,18 @@ npm run rebuild
   }
 },
 ```
+
 ### Personalized configuration
 this is the default configuration defined if you don't define any value
 
 ```js
 {
-  module: 'MMM-Snowboy',
+  module: 'MMM-Porcupine',
   config: {
     debug: false,
-    AudioGain: 2.0,
-    Frontend: true,
-    Model: "jarvis",
-    Sensitivity: null,
+    micVolume: 1,
+    hotwords: ["bumblebee"],
+    sensitivity: 0.5,
     micConfig: {
       recorder: "arecord",
       device: "plughw:1"
@@ -112,26 +108,13 @@ this is the default configuration defined if you don't define any value
 
 - `debug` - turn on/off debug mode.
 
-- `AudioGain` - set the gain of mic. Usually you don't need to set or adjust this value.
+- `micVolume` - The volume of the microphone. Usually you don't need to set or adjust this value.
 
-- `Frontend` -  set pre-processing of hotword detection. When you use only snowboy and smart_mirror, false is better. But with other models, true is better to recognize.
+- `hotwords` - Array of hotwords you wish to detect. The available hotwords are "porcupine", "bumblebee", "grasshopper", "terminator, and "hey edison"
 
-- `Model` - set the name of your detector. Available: "smart_mirror", "jarvis", "computer", "snowboy", "subex", "neo_ya", "hey_extreme", "view_glass"
-
-- `Sensitivity` - Override default sensitivity value for applied model defined in `Model`. 
+- `sensitivity` - Override default sensitivity value for applied model defined in `Model`. 
     * Value could be within a range from `0.0` to `1.0`.
-    * Default sensitivity values for preconfigured models are:
-      * smart_mirror: `0.5`
-      * jarvis: `0.7`
-      * computer: `0.6`
-      * snowboy: `0.5`
-      * subex: `0.6`
-      * neo_ya: `0.7`
-      * hey_extreme: `0.6`
-      * view_glass: `0.7`
-      * alexa: `0.6`
-
-    * `null` will set default sensitivity.
+    * Default sensitivity values is 0.5
 
 - `recorder` - record program, `rec`, `arecord`, `sox`, `parec` is available.
     * On RaspberryPi or some linux machines, `arecord` is better.
@@ -147,17 +130,13 @@ this is the default configuration defined if you don't define any value
 
  ### Notification received
  MMM-Snowboy can receive notification for start or stop listening
-  * `SNOWBOY_START`: Start listening your prefered hotkey
-  * `SNOWBOY_STOP`: Stop Litening
+  * `PORCUPINE_START`: Start listening for hotwords
+  * `PORCUPINE_STOP`: Stop listening for hotwords
   
  ### Notes
-  * this module don't need position, because it don't use any visual
-  * With npm install, you can generate a proper micConfig {} configuration.
+  * This module does't need any configuration for position because it runs behind-the-scenes
+  * With npm install, you can generate a proper micConfig {} configuration
   
  ### MMM-AssistantMk2 users
-  * MMM-Snowboy is preconfigured for this module
+  * MMM-Porcupine is preconfigured for this module
   * Just turn `useA2D: true` on the MMM-AssistantMk2 config file
-  
- ### Snowboy
- This module use my personal [@bugsounet/snowboy](https://github.com/bugsounet/snowboy) library build for node and will be maintened<br>
- Original [snowboy@kitt-AI](https://github.com/Kitt-AI/snowboy) source will be unmaintened soon
